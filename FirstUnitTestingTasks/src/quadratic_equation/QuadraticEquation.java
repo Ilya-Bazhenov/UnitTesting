@@ -19,6 +19,6 @@ public final class QuadraticEquation {
 
         double x1 = ((-b + sqrt(discriminant)) / (2 * a));
         double x2 = ((-b - sqrt(discriminant)) / (2 * a));
-        return String.valueOf(x1) + String.valueOf(x2);
+        return String.valueOf(x1) + " " + String.valueOf(x2);
     }
 }
