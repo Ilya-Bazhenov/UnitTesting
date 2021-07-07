@@ -3,6 +3,7 @@ package calculator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class SimpleCalculatorTest {
 
@@ -22,7 +23,12 @@ class SimpleCalculatorTest {
     }
 
     @Test
-    void div() {
+    void divByZero() {
+        assertThrows(ArithmeticException.class, () -> SimpleCalculator.div(1, 0));
+    }
+
+    @Test
+    void divNotByZero() {
         assertEquals(0, SimpleCalculator.div(1, 2));
     }
 }
