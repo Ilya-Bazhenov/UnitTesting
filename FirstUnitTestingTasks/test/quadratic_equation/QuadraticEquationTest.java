@@ -1,6 +1,7 @@
 package quadratic_equation;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +11,9 @@ class QuadraticEquationTest {
 
     @Test
     void shouldThrowIllegalArgumentExceptionWhenFirstCoefficientIsZero() {
-        assertThrows(IllegalArgumentException.class, () -> new QuadraticEquation(0, 1, 1));
+        Executable executable = () -> new QuadraticEquation(0, 1, 1);
+
+        assertThrows(IllegalArgumentException.class, executable);
     }
 
     @Test

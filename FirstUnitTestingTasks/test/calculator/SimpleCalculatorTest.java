@@ -1,6 +1,7 @@
 package calculator;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,26 +10,36 @@ class SimpleCalculatorTest {
 
     @Test
     void sum() {
-        assertEquals(0, SimpleCalculator.sum(1, -1));
+        int actualAnswer = SimpleCalculator.sum(1, -1);
+
+        assertEquals(0, actualAnswer);
     }
 
     @Test
     void sub() {
-        assertEquals(0, SimpleCalculator.sub(1, 1));
+        int actualAnswer = SimpleCalculator.sub(1, 1);
+
+        assertEquals(0, actualAnswer);
     }
 
     @Test
     void mul() {
-        assertEquals(0, SimpleCalculator.mul(1, 0));
+        int actualAnswer = SimpleCalculator.mul(1, 0);
+
+        assertEquals(0, actualAnswer);
     }
 
     @Test
     void divByZero() {
-        assertThrows(ArithmeticException.class, () -> SimpleCalculator.div(1, 0));
+        Executable executable = () -> SimpleCalculator.div(1, 0);
+
+        assertThrows(ArithmeticException.class, executable);
     }
 
     @Test
     void divNotByZero() {
-        assertEquals(0, SimpleCalculator.div(1, 2));
+        int actualAnswer = SimpleCalculator.div(1, 2);
+
+        assertEquals(0, actualAnswer);
     }
 }
