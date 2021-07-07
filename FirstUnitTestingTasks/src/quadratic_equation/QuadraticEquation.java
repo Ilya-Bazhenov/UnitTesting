@@ -2,6 +2,9 @@ package quadratic_equation;
 
 import static java.lang.Math.sqrt;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public final class QuadraticEquation {
     private final int a, b, c;
 
@@ -13,12 +16,15 @@ public final class QuadraticEquation {
         this.c = c;
     }
 
-    public String calculateRoots() {
+    public List<Double> calculateRoots() {
         int discriminant = b * b - 4 * a * c;
-        if (discriminant < 0) return "no roots";
+        List<Double> roots = new ArrayList<>();
 
-        double x1 = ((-b + sqrt(discriminant)) / (2 * a));
-        double x2 = ((-b - sqrt(discriminant)) / (2 * a));
-        return String.valueOf(x1) + " " + String.valueOf(x2);
+        if (discriminant >= 0) {
+            roots.add((-b + sqrt(discriminant)) / (2 * a));
+            roots.add((-b - sqrt(discriminant)) / (2 * a));
+        }
+
+        return roots;
     }
 }
